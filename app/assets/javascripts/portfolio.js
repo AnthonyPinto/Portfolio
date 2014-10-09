@@ -4,7 +4,9 @@ window.Portfolio = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    var $rootEl = $("div.content-wrapper")
+    new Portfolio.Routers.Router({$rootEl: $rootEl});
+    Backbone.history.start();
   }
 };
 
