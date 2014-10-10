@@ -8,6 +8,7 @@ Portfolio.Views.Skills = Backbone.View.extend({
   render: function () {
     var content = this.template();
     this.$el.html(content);
+    this.renderTitle("Skills"); //delay text helper extension
     return this;
   }
 });

@@ -3,37 +3,29 @@ window.Portfolio = {
   Collections: {},
   Views: {},
   Routers: {},
+  
   initialize: function() {
     var $rootEl = $("div.content-wrapper")
     new Portfolio.Routers.Router({$rootEl: $rootEl});
     Backbone.history.start();
-  }
-};
-
-$(document).ready(function(){
-  Portfolio.initialize();
-  var $tabs = $("a.item")
-  $("a.item").on("click", function (event) {
-    event.preventDefault();
-    var $tab = $(event.currentTarget)
-    if ($tab.hasClass("highlighted")) {
-      return
-    }
-    window.Portfolio.setTabs($tab);
-    window.Portfolio.route($tab);
-  });
+  },
   
-  window.Portfolio.setTabs = function ($tab) {
-    $tabs.removeClass("highlighted");
+  setTabs: function ($tab) {
+    $("a.item").removeClass("highlighted");
     $tab.addClass("highlighted");
     
     var $wrapper = $("div.content-wrapper");
     $wrapper.removeClass($wrapper.data("mode"));
     $wrapper.data("mode", $tab.data("mode"));
-    $wrapper.addClass($tab.data("mode"));
-  }
+    window.setTimeout(
+      function () {
+        $wrapper.addClass($tab.data("mode"))
+      },
+      100
+    );
+  },
   
-  window.Portfolio.route = function ($tab) {
+  route: function ($tab) {
     var mode = $tab.data("mode")
     switch(mode) {
     case "projects-mode":
@@ -48,5 +40,18 @@ $(document).ready(function(){
     }
     Backbone.history.navigate(url, {trigger: true});
   }
+};
+
+$(document).ready(function(){
+  Portfolio.initialize();
+  $("a.item").on("click", function (event) {
+    event.preventDefault();
+    var $tab = $(event.currentTarget)
+    if ($tab.hasClass("highlighted")) {
+      return
+    }
+    window.Portfolio.setTabs($tab);
+    window.Portfolio.route($tab);
+  });
   
 });

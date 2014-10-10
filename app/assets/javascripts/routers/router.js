@@ -12,16 +12,19 @@ Portfolio.Routers.Router = Backbone.Router.extend({
   },
   
   projects: function () {
+    window.Portfolio.setTabs($("a.projects-mode"))
     var view = new Portfolio.Views.Projects();
     this._swapView(view);
   },
   
   skills: function () {
+    window.Portfolio.setTabs($("a.skills-mode"))
     var view = new Portfolio.Views.Skills();
     this._swapView(view);
   },
   
   me: function () {
+    window.Portfolio.setTabs(this.$rootEl.find("a.me-mode"))
     var view = new Portfolio.Views.Me();
     this._swapView(view);
   },
