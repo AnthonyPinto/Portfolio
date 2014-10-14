@@ -1,0 +1,32 @@
+
+<style>
+  html, body{
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  canvas{
+    margin: auto;
+    display: block;
+  }
+  
+  </style>
+
+<canvas></canvas>
+
+<%= javascript_include_tag "sharks" %>
+
+<script>
+  var canvasEl = document.getElementsByTagName("canvas")[0];
+  canvasEl.height = window.innerHeight;
+  canvasEl.width = window.innerWidth;
+  var game = new Asteroids.Game(
+    canvasEl.width,
+    canvasEl.height,
+    1
+  );
+  var view = new Asteroids.GameView(game, canvasEl.getContext("2d"));
+  view.start();
+</script>
+
+

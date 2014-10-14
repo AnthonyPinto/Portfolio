@@ -81,7 +81,7 @@ a.highlighted.me-mode, .content-wrapper.me-mode {
   color: white;
   font-size: 2em;
   font-family: 'Lato', sans-serif;
-  letter-spacing: 6px;
+  letter-spacing: 3px;
 }
 
 .projects {
@@ -90,7 +90,7 @@ a.highlighted.me-mode, .content-wrapper.me-mode {
 }
 
 .project {
-  padding:10px;
+  padding:25px;
   background-color: rgba(255,255,255,0.9);
   border-radius:2px;
   border:2px rgba(255,255,255,1) solid;
@@ -102,6 +102,7 @@ a.highlighted.me-mode, .content-wrapper.me-mode {
 
 .project-image {
   display: block;
+	border:2px black solid;
 }
 
 .skills {
