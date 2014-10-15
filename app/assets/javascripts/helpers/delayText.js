@@ -22,12 +22,12 @@ _.extend(Backbone.View.prototype, {
   renderTitle: function (text) {
     var $title = this.$(".mode-title")
     $title.fadeIn({
-    	duration: 500,
+    	duration: 600,
     });
 
     this.delayedText({
       text: text,
-      delay: (400 / text.length) - 5,
+      delay: (500 / text.length),
       element: $title
     })
   }    

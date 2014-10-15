@@ -5,10 +5,9 @@ Portfolio.Routers.Router = Backbone.Router.extend({
   
   
   routes: {
+    "" : "me",
     "projects" : "projects",
-    "skills" : "skills",
-    "me" : "me"
-    
+    "skills" : "skills"
   },
   
   projects: function () {
