@@ -17,12 +17,7 @@ window.Portfolio = {
     var $wrapper = $("div.content-wrapper");
     $wrapper.removeClass($wrapper.data("mode"));
     $wrapper.data("mode", $tab.data("mode"));
-    window.setTimeout(
-      function () {
-        $wrapper.addClass($tab.data("mode"))
-      },
-      100
-    );
+    $wrapper.addClass($tab.data("mode"))
   },
 };
 
