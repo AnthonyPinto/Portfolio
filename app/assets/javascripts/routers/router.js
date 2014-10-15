@@ -5,7 +5,7 @@ Portfolio.Routers.Router = Backbone.Router.extend({
   
   
   routes: {
-    "" : "projects",
+    "projects" : "projects",
     "skills" : "skills",
     "me" : "me"
     

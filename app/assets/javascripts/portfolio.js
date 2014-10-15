@@ -24,34 +24,16 @@ window.Portfolio = {
       100
     );
   },
-  
-  route: function ($tab) {
-    var mode = $tab.data("mode")
-    switch(mode) {
-    case "projects-mode":
-      var url = "/" 
-      break;
-    case "skills-mode":
-      var url = "/skills"
-      break;
-    case "me-mode":
-      var url = "/me"
-      break;
-    }
-    Backbone.history.navigate(url, {trigger: true});
-  }
 };
 
 $(document).ready(function(){
   Portfolio.initialize();
   $("a.item").on("click", function (event) {
-    event.preventDefault();
     var $tab = $(event.currentTarget)
     if ($tab.hasClass("highlighted")) {
+			event.preventDefault();
       return
     }
-    window.Portfolio.setTabs($tab);
-    window.Portfolio.route($tab);
   });
   
 });

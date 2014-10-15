@@ -18,13 +18,17 @@
 
 @import 'foundation-icons';
 
+.centered-text {
+	text-align:center;
+}
+
 body {
   background-image: url('bg1.png')
 }
 
 .title {
   color:white;
-  font-size:4em;
+  font-size:2.5em;
   font-family: 'Lato', sans-serif;
   letter-spacing: 12px;
   text-align: center;
@@ -44,29 +48,29 @@ a.highlighted{
 }
 
 a.projects-mode:hover {
-  background-color: rgba(255, 100, 100 ,0.2);
+  background-color: rgba(200, 100, 100 ,1);
 }
 
 a.highlighted.projects-mode, .content-wrapper.projects-mode {
-  background-color: rgba(255, 100, 100 ,0.2);
-  transition: background-color 1s;
+  background-color: rgba(200, 100, 100 ,1);
+  transition: background-color 0.5s;
 }
 
 a.skills-mode:hover {
-  background-color: rgba(100, 255, 100 ,0.2);
+  background-color: rgba(100, 200, 100 ,1);
 }
 
 a.highlighted.skills-mode, .content-wrapper.skills-mode {
-  background-color: rgba(100, 255, 100 ,0.2);
+  background-color: rgba(100, 200, 100 ,1);
   transition: background-color 1s;
 }
 
 a.me-mode:hover {
-  background-color: rgba(100, 100, 255 ,0.2);
+  background-color: rgba(100, 100, 200 ,1);
 }
 
 a.highlighted.me-mode, .content-wrapper.me-mode {
-  background-color: rgba(100, 100, 255 ,0.2);
+  background-color: rgba(100, 100, 200 ,1);
   transition: background-color 1s;
 }
 
@@ -90,14 +94,23 @@ a.highlighted.me-mode, .content-wrapper.me-mode {
 }
 
 .project {
-  padding:25px;
-  background-color: rgba(255,255,255,0.9);
+	overflow: hidden;
+  background-color: white;
   border-radius:2px;
-  border:2px rgba(255,255,255,1) solid;
+  border:15px rgba(255,255,255,1) solid;
+}
+
+div.row.project-title-row {
+	border-bottom: 1px grey solid;
+	margin-bottom: 8px;
 }
 
 .project-title {
   display: inline;
+}
+
+div.row.project-content-row {
+
 }
 
 .project-image {
@@ -109,4 +122,56 @@ a.highlighted.me-mode, .content-wrapper.me-mode {
   margin:0 15px;
   padding-top: 15px;
 }
+
+div.row.skills-list {
+		background-color:white;
+		margin:0px;
+		border-radius:2px;
+		padding-top:5px;
+}
+
+.skill-brief {
+	background-color:#AAFFAA;
+	padding:5px 15px;
+	width:100%;
+	display:block;
+	margin:5px auto;
+	text-align:center;
+	color:white;
+}
+
+.skill-brief:nth-child(2){
+	background-color:#BBFFBB;
+}
+
+.skill-brief:nth-child(3){
+	background-color:#CCFFCC;
+}
+
+.skill-brief:nth-child(4){
+	background-color:#DDFFDD;
+}
+
+.skill-brief:last-child{
+	margin-bottom:30px;
+}
+
+.skill-icon {
+	height:50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.skill-name {
+	margin-bottom:30px;
+}
+
+.learning {
+	margin:0;
+	position:relative;
+	top:-38px;
+}
+
+
 
