@@ -24,7 +24,7 @@ Portfolio.Routers.Router = Backbone.Router.extend({
   },
   
   me: function () {
-    window.Portfolio.setTabs(this.$rootEl.find("a.me-mode"))
+    window.Portfolio.setTabs($("a.me-mode"))
     var view = new Portfolio.Views.Me();
     this._swapView(view);
   },
