@@ -38,13 +38,27 @@ body {
   margin-bottom: -6px;
 }
 
-.icon-bar {
+.icon-bar a{
+	height:67px;
+}
+
+.icon-bar i{
+	transition: font-size 0.5s;
 }
 
 a.highlighted{
 //  border:2px rgba(255,255,255,0.1) solid;
 //  border-bottom:none;
   border:none;
+}
+
+a.highlighted label {
+	display:none;
+}
+
+a.highlighted i {
+	font-size:45px;
+	transition: font-size 0.5s;
 }
 
 a.projects-mode:hover {
@@ -55,6 +69,7 @@ a.highlighted.projects-mode, .content-wrapper.projects-mode {
   background-color: rgba(200, 100, 100 ,1);
   transition: background-color 0.5s;
 }
+
 
 a.skills-mode:hover {
   background-color: rgba(100, 200, 100 ,1);
@@ -127,7 +142,7 @@ div.row.skills-list {
 		background-color:white;
 		margin:0px;
 		border-radius:2px;
-		padding-top:5px;
+
 }
 
 .skill-brief {
