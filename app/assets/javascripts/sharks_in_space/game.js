@@ -11,11 +11,12 @@
     this.DIM_Y = DIM_Y;
     this.NUM_ASTEROIDS = NUM_ASTEROIDS;
     this.asteroids = [];
-    this.ship = new Asteroids.Ship(this.randomPosition(), this);
+    this.ship = new Asteroids.Ship(this.startPosition(), this);
     this.addAsteroids();
     this.bullets = [];
-    this.img = new Image();
-    this.img.src = 'assets/sharks-in-space.jpg';
+    this.upgrades = [];
+    // this.img = new Image();
+    // this.img.src = 'sharks-in-space.jpg';
     this.lives = 3;
   };
   
@@ -24,8 +25,16 @@
       this.asteroids.push(obj);
     } else if (obj instanceof Asteroids.Bullet) {
       this.bullets.push(obj);
+    } else if (obj instanceof Asteroids.Upgrade) {
+      this.upgrades.push(obj);
     }
   };
+  Game.prototype.startPosition = function () {
+    var x = this.DIM_X/2
+    var y = this.DIM_Y/2
+    return [x, y]
+  }
+  
   Game.prototype.randomPosition = function () {
     var x = Math.random() * this.DIM_X;
     var y = Math.random() * this.DIM_Y;
@@ -40,15 +49,15 @@
   
   Game.prototype.allObjects = function () {
     if (this.ship){
-      return this.asteroids.concat(this.ship).concat(this.bullets);
+      return this.asteroids.concat(this.ship).concat(this.bullets).concat(this.upgrades);
     } else {
-      return this.asteroids.concat(this.bullets);
+      return this.asteroids.concat(this.bullets).concat(this.upgrades);
     }
   };
   
   Game.prototype.draw = function (ctx) {
     ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
-    ctx.drawImage(this.img, 0, 0, this.DIM_X, this.DIM_Y);
+    // ctx.drawImage(this.img, 0, 0, this.DIM_X, this.DIM_Y);
 
     this.allObjects().forEach(function (object) {
       object.draw(ctx);
@@ -110,6 +119,8 @@
     } else if (obj instanceof Asteroids.Ship) {
       this.ship = null;
       this.gameOver;
+    } else if (obj instanceof Asteroids.Upgrade) {
+      this.upgrades.splice(this.upgrades.indexOf(obj), 1)
     }
   };
   
@@ -117,7 +128,7 @@
   Game.prototype.step = function() {
     if (this.ship) {
       var ship = this.ship;
-      ship.recharge();
+      ship.update();
       if (key.isPressed('up')) {
         ship.power(0.3);
       }

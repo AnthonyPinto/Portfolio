@@ -18,17 +18,14 @@
   Asteroids.Util.inherits.call(Asteroid, Asteroids.MovingObject);
   
   Asteroid.prototype.collideWith = function (otherObject) {
-    if (otherObject instanceof Asteroids.Ship) {
-      otherObject.relocate();
-    }
     if (otherObject instanceof Asteroids.Asteroid) {
       this.bounceAway(otherObject);
     }
   };
   
   Asteroid.prototype.draw = function(ctx) {
-    var grad = ctx.createLinearGradient(0, 0, this.game.DIM_X, this.game.DIM_Y * 2);
-    grad.addColorStop(0, "white");
+    var grad = ctx.createLinearGradient(0, 0, this.game.DIM_X, this.game.DIM_Y);
+    grad.addColorStop(0, "black");
     grad.addColorStop(0.5, this.color);
     grad.addColorStop(1, "black");
     ctx.fillStyle = grad;
@@ -61,6 +58,9 @@
         this.game.add(new Asteroid([this.pos[0], this.pos[1]], 
           (this.radius / 4 * Math.random() + this.radius / 2), this.game));
       }
+    }
+    if (Math.random() < 0.3 && this.game.upgrades.length === 0) {
+      this.game.add(new Asteroids.Upgrade([this.pos[0], this.pos[1]], this.game))
     }
     this.game.remove(this);
   };
