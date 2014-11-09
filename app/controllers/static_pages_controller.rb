@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
   
   def sharks
   end
+  
+  def resume
+  end
 end
